@@ -31,7 +31,7 @@ const octree = new Octree(16, 'blue');
 
 ### `setValue(x: number, y: number, z: number, value: T) : void`
 
-Sets a value in the tree at the given voxel coordinate. Note that the coordinate is in locaspace to the tree itself, which does not inherently exist in a more global space.
+Sets a value in the tree at the given voxel coordinate. Note that the coordinate is in localspace to the tree itself, which does not inherently exist in a more global space.
 
 ```
 octree.setValue(7,15,1, 'red'); // Set this specific coordinate to red. 
@@ -89,7 +89,7 @@ Setting up to coordinates back to 'O' will cause another rebalance: `setValue(0,
 Matrix view:
 z=0       z=1
     X X      O O
-    X X      O O
+    X O      O O
 
 Tree View (3 children, 4 total nodes):
             O
@@ -112,7 +112,7 @@ Tree View (0 children, 1 total nodes):
 
 ### `getValue(x: number, y: number, z: number) : T`
 
-Retreives a value from the tree given the coordinate of the voxel desired. Note that the coordinate is in localspace to the tree itself, which does not inherently exist in a more global space. All voxels in the tree have a value at all times. If a subdivision doesn't exist for the precice coordinates asked for, the value of the parent, or closest existing ancestor is the value returned.
+Retreives a value from the tree given the coordinate of the voxel desired. Note that the coordinate is in localspace to the tree itself, which does not inherently exist in a more global space. All voxels in the tree have a value at all times. If a subdivision doesn't exist for the precise coordinates asked for then the value of the parent, or closest existing ancestor, is the value returned.
 This call should be O(log(n)).
 
 ```
