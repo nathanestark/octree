@@ -3,7 +3,6 @@ import OctPosition from './oct-position';
 import getOctPosition from './get-oct-position';
 
 export default function recursiveSetNodeValue<T>(node: Node<T>, x: number, y:number, z:number, value: T) : void {
-    //console.log("RECURSE", node, x, y, z, value);
 
     // If node is an atomic leaf, set it.
     // This should be a rare condition, since we don't
@@ -131,6 +130,7 @@ function groupCount<T>(list: Array<T>, ...filterFn: Array<((value: T) => boolean
     }, ret);
 }
 
+// Generate a new child from given information
 function generateChild<T>(parent: Node<T>, octPosition: OctPosition) : Node<T> {
     const cDepth = parent.depth/2;
 
